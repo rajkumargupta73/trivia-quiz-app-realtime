@@ -1,0 +1,2 @@
+module QuizRoomsHelper
+end
