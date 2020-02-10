@@ -1,0 +1,17 @@
+<h3>Category New Form</h3>
+
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <p style="color: red"><%= error %></p>
+    <%end%> 
+<%end%>
+ 
+<%= form_for @category do |f| %>
+    <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class:"form-control" %>
+    </div>
+    <%= f.submit 'submit', :class => 'btn btn-primary' %>
+    
+<%end%>   

@@ -1,0 +1,38 @@
+<h3>Questions</h3>
+
+<%= link_to "Add Question",  new_question_path , class: "btn btn-primary" %>
+
+<div class="table-responsive">
+<table class="table table-hover">
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Question</th>
+    <th scope="col">Difficulty</th>
+    <th scope="col">Wrong Answer 1</th>
+    <th scope="col">Wrong Answer 1</th>
+    <th scope="col">Wrong Answer 1</th>
+    <th scope="col">Correct Answer</th>
+    <th scope="col">Action</th>    
+  </tr>
+</thead>
+<tbody>
+  <% @questions.each.with_index  do |question,index| %>
+    <tr>
+      <th scope="row"><%= index+1 %></th>
+      <td><%= question.question %></td>
+      <td><%= question.difficulty %></td>
+      <td><%= question.wrong_answer1 %></td>
+      <td><%= question.wrong_answer2 %></td>
+      <td><%= question.wrong_answer3 %></td>
+      <td><%= question.right_answer %></td>
+      <td>
+      <%= link_to "Edit",  edit_question_path(:id=> question.id)  %>|
+      <%= link_to "Delete", question_path(:id=> question.id), method: :delete  %>
+      </td>
+      
+    </tr>
+  <% end %>
+</tbody>
+</table>
+</div>

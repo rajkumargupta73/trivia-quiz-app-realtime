@@ -1,0 +1,2 @@
+class WaitingroomsController < ApplicationController
+end

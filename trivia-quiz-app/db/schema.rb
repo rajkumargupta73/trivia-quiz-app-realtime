@@ -10,18 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_08_014357) do
+ActiveRecord::Schema.define(version: 2020_02_08_064627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "question", null: false
+    t.string "wrong_answer1", null: false
+    t.string "wrong_answer2", null: false
+    t.string "wrong_answer3", null: false
+    t.string "right_answer", null: false
+    t.string "difficulty", null: false
+    t.integer "catergoryid", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "quiz_rooms", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
-    t.string "difficulty", null: false
-    t.integer "categoryid", null: false
+    t.string "difficulty", default: ""
+    t.integer "categoryid", default: 0
     t.integer "timeout", null: false
     t.integer "playerno", null: false
+    t.string "username", null: false
+    t.boolean "active", default: false
+    t.boolean "complete", default: false
+    t.string "winner", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_quiz_rooms_on_name"

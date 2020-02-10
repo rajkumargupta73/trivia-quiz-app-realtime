@@ -1,1 +1,32 @@
-<h1>Quiz Rooms index</h1>
+<h3>Game Room Create</h3>
+
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <p style="color: red"><%= error %></p>
+    <%end%> 
+<%end%>
+ 
+<%= form_for @quiz do |f| %>
+    <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class:"form-control" %>
+    </div>
+    <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class:"form-control" %>
+    </div>
+    <div class="form-group">
+    <%= f.label :timeout %>
+    <%= f.text_field :timeout, class:"form-control" %>
+    </div>
+    <div class="form-group">
+    <%= f.label :playerno %>
+    <%= f.text_field :playerno, class:"form-control" %>
+    </div>
+    
+    
+  
+    <%= f.submit 'submit', :class => 'btn btn-primary' %>
+    
+<%end%>   

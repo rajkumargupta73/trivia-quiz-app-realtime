@@ -1,0 +1,15 @@
+<div class="card">
+
+<% @quizes.each.with_index  do |quiz,index| %>
+  <div class="card-body">
+    <h5 class="card-title"><%= quiz.name %></h5>
+    <p class="card-text"><%= quiz.description %></p>
+    <p class="card-text">
+    </p> 
+    <%= link_to "Play", playgames_path(:room_id=> quiz.id), class: "btn btn-primary"%>
+
+
+  </div>
+<% end %> 
+<%= link_to "Create Game", quiz_rooms_path , class: "btn btn-primary"  %> 
+</div>

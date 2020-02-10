@@ -1,0 +1,28 @@
+<h3>Categories</h3>
+
+<%= link_to "Add Category",  new_category_path , class: "btn btn-primary" %>
+
+<div class="table-responsive-xl">
+<table class="table table-hover">
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Category</th>
+    <th scope="col">Action</th>    
+  </tr>
+</thead>
+<tbody>
+  <% @categories.each.with_index  do |category,index| %>
+    <tr>
+      <th scope="row"><%= index+1 %></th>
+      <td><%= category.name %></td>
+      <td>
+      <%= link_to "Edit",  edit_category_path(:id=> category.id)  %>|
+      <%= link_to "Delete", category_path(:id=> category.id), method: :delete  %>
+      </td>
+      
+    </tr>
+  <% end %>
+</tbody>
+</table>
+</div>

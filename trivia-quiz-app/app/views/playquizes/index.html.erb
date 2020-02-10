@@ -1,0 +1,66 @@
+<h3>Play Quiz</h3>
+
+<div class='container'>
+<label>Timer</label>
+<p id="timer"></p>
+</div>
+
+<script>
+window.onload = function(){
+
+(function(){
+  var counter = 10;
+
+  setInterval(function() {
+    counter--;
+    if (counter >= 0) {
+      span = document.getElementById("timer");
+      span.innerHTML = counter;
+    }
+    
+    if (counter === 0) {
+        clearInterval(counter);
+        alert(1);
+        window.location.href='/results'
+    }
+
+  }, 1000);
+
+})();
+
+}
+</script>
+<div class="container-fluid bg-info">
+    <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h3><span class="label label-warning" id="qid">2</span><%= @question.question %></h3>
+        </div>
+        <div class="modal-body">
+            <div class="col-xs-3 col-xs-offset-5">
+               <div id="loadbar" style="display: none;">
+                  <div class="blockG" id="rotateG_01"></div>
+                  <div class="blockG" id="rotateG_02"></div>
+                  <div class="blockG" id="rotateG_03"></div>
+                  <div class="blockG" id="rotateG_04"></div>
+                  <div class="blockG" id="rotateG_05"></div>
+                  <div class="blockG" id="rotateG_06"></div>
+                  <div class="blockG" id="rotateG_07"></div>
+                  <div class="blockG" id="rotateG_08"></div>
+              </div>
+          </div>
+
+          <div class="quiz" id="quiz" data-toggle="buttons">
+           <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="<%= @question.wrong_answer1 %>"><%= @question.wrong_answer1 %></label>
+           <label class="element-animation2 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="<%= @question.wrong_answer1 %>"><%= @question.wrong_answer2 %></label>
+           <label class="element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="<%= @question.wrong_answer1 %>"><%= @question.wrong_answer3 %></label>
+           <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="<%= @question.wrong_answer1 %>"><%= @question.right_answer %></label>
+       </div>
+   </div>
+   <div class="modal-footer text-muted">
+    <span id="answer"></span>
+</div>
+</div>
+</div>
+</div>
+
