@@ -1,4 +1,4 @@
-/* import consumer from "./consumer"
+import consumer from "./consumer"
 
 consumer.subscriptions.create({ channel: 'QuizzesChannel', id: 1},
 {
@@ -15,6 +15,5 @@ consumer.subscriptions.create({ channel: 'QuizzesChannel', id: 1},
     // Called when there's incoming data on the websocket for this channel
   }
 });
- */
 
 

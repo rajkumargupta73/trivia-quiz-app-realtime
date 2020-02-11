@@ -13,5 +13,5 @@
     <%= f.text_field :name, class:"form-control" %>
     </div>
     <%= f.submit 'submit', :class => 'btn btn-primary' %>
-    
+    <%= link_to "Cancel",  {:controller=>"categories", :action=>"index"} , class: "btn btn-danger" %>
 <%end%>   

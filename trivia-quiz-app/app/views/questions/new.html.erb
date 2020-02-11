@@ -30,9 +30,15 @@
     </div>
     <div class="form-group">
     <%= f.label :difficulty %>
-    <%= f.text_field :difficulty, class:"form-control" %>
+    <%= f.select :difficulty, ['easy', 'medium','hard'], class:"form-control" %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :category %>
+    <%= f.select :categoryid, Category.all.pluck(:name,:id),{prompt:'select'},{class: "form-control"}%>
     </div>
   
     <%= f.submit 'submit', :class => 'btn btn-primary' %>
+    <%= link_to "Cancel",  {:controller=>"questions", :action=>"index"} , class: "btn btn-danger" %>
     
 <%end%>   
